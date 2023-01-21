@@ -4,8 +4,8 @@ import { TodoModule } from './todo/todo.module';
 
 @Module({
   imports: [
-    TodoModule,
     MongooseModule.forRoot('mongodb://localhost/nest-crud'),
+    TodoModule,
   ],
 })
 export class AppModule {}
