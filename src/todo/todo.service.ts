@@ -28,6 +28,9 @@ export class TodoService {
 
     async update(id, todo: Todo){
         let t: any = await this.todoModel.findById(id);
+        if(!t){
+            throw new NotFoundException('Could not find todo.');
+        }
         t.title = todo.title || t.title;
         t.description = todo.description || t.description;
         t.status = todo.status || t.status;
