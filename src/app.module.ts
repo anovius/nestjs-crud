@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
+import { MongooseModule } from '@nestjs/mongoose';
 import { TodoModule } from './todo/todo.module';
 
 @Module({
-  imports: [TodoModule],
-  controllers: [AppController]
+  imports: [
+    TodoModule,
+    MongooseModule.forRoot('mongodb://localhost/nest-crud'),
+  ],
 })
 export class AppModule {}
